@@ -4,13 +4,19 @@
   
   
   <entry>
-    <title>Hello World</title>
-    <link href="/2025/05/07/hello-world/"/>
-    <url>/2025/05/07/hello-world/</url>
+    <title>如何建立这样一个博客站</title>
+    <link href="/2025/05/08/%E5%A6%82%E4%BD%95%E5%BB%BA%E7%AB%8B%E8%BF%99%E6%A0%B7%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2%E7%AB%99/"/>
+    <url>/2025/05/08/%E5%A6%82%E4%BD%95%E5%BB%BA%E7%AB%8B%E8%BF%99%E6%A0%B7%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2%E7%AB%99/</url>
     
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    <content type="html"><![CDATA[<p>也是一时兴起，用了两天时间大概搭建了这么一个简单的博客站，起因是昨天下午在图书馆坐立难安，感觉无所事事，在查一些东西时又翻到了本校学长建的博客站，想到自己以前也收藏了不少学长的站点，还从那下了不少资料，突然觉得自己也想搞一个博客站来记录我的各种笔记，于是就吭哧吭哧开干了</p><h2 id="关于开发的箴言与我的废话"><a href="#关于开发的箴言与我的废话" class="headerlink" title="关于开发的箴言与我的废话"></a>关于开发的箴言与我的废话</h2><p>以前看到过一个很有趣的缩写”STFW”，其实就是”Search the fxxking web”，素质很差，但很真实，开发上的问题要先从搜索开始。</p><p>然后要”RTFM”，其实也很没素质，是”Read the fxxking manual”，你能查到的不只是CSDN那些废料，还有各种 Document, Manual, Guide, Get started等等，比如本次建立的博客站。</p><p>说实话，每一步都像在跑样例，相比我之前调机器人的时候遇到的问题可简单多了，而且这个领域已经有各种各样的成熟方案，光是一个网站浏览量统计，这个Theme的作者就写了六种接口，简直不要太舒服。</p><h2 id="为什么建这么一个站"><a href="#为什么建这么一个站" class="headerlink" title="为什么建这么一个站"></a>为什么建这么一个站</h2><p>太健忘了(把在电脑上的笔记搬上来，万一以后别人问我技术细节，我当场掏出手机就能看)</p><p>而且我现在话贼多，每天水群都可以水两三个小时，建个站来写废话，反正运营不要钱</p><h2 id="怎么建这样一个博客站"><a href="#怎么建这样一个博客站" class="headerlink" title="怎么建这样一个博客站"></a>怎么建这样一个博客站</h2><p>相信眼尖的你已经注意到了，博客站的页脚基本都写了用的是什么框架和主题。确实，我用的是Hexo框架，Fluid主题，下面是官网链接，读手册就行，你肯定也能几天就建好一个博客站的，加油</p><p><a href="https://hexo.io/zh-cn/docs/">Hexo</a>的官网详细写了怎么配环境以及初始化（我也是第一次用Node.js啊）</p><p>但其实官网基本没写怎么部署到Github Pages上，这个是我参考的教程<a href="https://zhuanlan.zhihu.com/p/60578464">感觉…知乎比CSDN好用</a></p><p><a href="https://hexo.fluid-dev.com/docs/">Fluid主题</a>的作者很详尽的写了config里面的参数含义，以及怎么配置</p>]]></content>
     
     
+    
+    <tags>
+      
+      <tag>Tech</tag>
+      
+    </tags>
     
   </entry>
   
