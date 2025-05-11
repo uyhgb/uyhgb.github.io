@@ -1,0 +1,850 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/browser_icon/fluid.jpg">
+  <link rel="icon" href="/img/browser_icon/fluid.jpg">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="uyhgb">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="问题背景：由于煮波代码基础贼差，而且记性不好，经常会问GPT一些很基础的概念问题，扔在这里方便煮波随时复习，对话的起因是在问ROS里面的rospy.get_param()函数  函数，方法Q：getparam是rospy下的方法还是函数呢，我不太了解python的方法、函数等概念，能为我解释一下吗 A:太好了，这是一个很关键又常让人疑惑的问题！我来从Python 的角度一步步讲清楚“函数”、“方法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python的类、对象、函数、方法、模块、库的辨析">
+<meta property="og:url" content="http://uyhgb.github.io/2025/05/11/Python%E7%9A%84%E7%B1%BB%E3%80%81%E5%AF%B9%E8%B1%A1%E3%80%81%E5%87%BD%E6%95%B0%E3%80%81%E6%96%B9%E6%B3%95%E3%80%81%E6%A8%A1%E5%9D%97%E3%80%81%E5%BA%93%E7%9A%84%E8%BE%A8%E6%9E%90/index.html">
+<meta property="og:site_name" content="uyhgb&#39;s Toy Box">
+<meta property="og:description" content="问题背景：由于煮波代码基础贼差，而且记性不好，经常会问GPT一些很基础的概念问题，扔在这里方便煮波随时复习，对话的起因是在问ROS里面的rospy.get_param()函数  函数，方法Q：getparam是rospy下的方法还是函数呢，我不太了解python的方法、函数等概念，能为我解释一下吗 A:太好了，这是一个很关键又常让人疑惑的问题！我来从Python 的角度一步步讲清楚“函数”、“方法">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://uyhgb.github.io/img/post_idx/post1.jpg">
+<meta property="article:published_time" content="2025-05-11T06:06:40.000Z">
+<meta property="article:modified_time" content="2025-05-11T06:28:07.428Z">
+<meta property="article:author" content="uyhgb">
+<meta property="article:tag" content="代码">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://uyhgb.github.io/img/post_idx/post1.jpg">
+  
+  
+  
+  <title>Python的类、对象、函数、方法、模块、库的辨析 - uyhgb&#39;s Toy Box</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"uyhgb.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"Lmk9Sm7LRoOjJnZaSN5jc0G5-MdYXbMMI","app_key":"YzimN5n7KmEyMTQYPPFlLYvj","server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2025-05-07T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>uyhgb&#39;s Toy Box</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/post_banner/post1.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Python的类、对象、函数、方法、模块、库的辨析"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-05-11 14:06" pubdate>
+          2025年5月11日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.1k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          10 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span>次
+        </span>
+        
+      
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Python的类、对象、函数、方法、模块、库的辨析</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>问题背景：由于煮波代码基础贼差，而且记性不好，经常会问GPT一些很基础的概念问题，扔在这里方便煮波随时复习，对话的起因是在问ROS里面的<code>rospy.get_param()</code>函数</p>
+<hr>
+<h1 id="函数，方法"><a href="#函数，方法" class="headerlink" title="函数，方法"></a>函数，方法</h1><h2 id="Q："><a href="#Q：" class="headerlink" title="Q："></a>Q：</h2><p>getparam是rospy下的方法还是函数呢，我不太了解python的方法、函数等概念，能为我解释一下吗</p>
+<h2 id="A"><a href="#A" class="headerlink" title="A:"></a>A:</h2><p>太好了，这是一个很关键又常让人疑惑的问题！我来从<strong>Python 的角度</strong>一步步讲清楚“函数”、“方法”这些概念，再解释 <code>rospy.get_param()</code> 是哪一种。</p>
+<hr>
+<h2 id="🧠-一、函数（Function）是什么？"><a href="#🧠-一、函数（Function）是什么？" class="headerlink" title="🧠 一、函数（Function）是什么？"></a>🧠 一、函数（Function）是什么？</h2><blockquote>
+<p><strong>函数</strong>是 Python 中可以被单独调用的一段可复用代码。</p>
+</blockquote>
+<p>你可以把它理解为一个“独立的工具”：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">say_hello</span>(<span class="hljs-params">name</span>):<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Hello,&quot;</span>, name)<br><br>say_hello(<span class="hljs-string">&quot;Andy&quot;</span>)  <span class="hljs-comment"># 调用函数</span><br></code></pre></td></tr></table></figure>
+
+<p>这里的 <code>say_hello</code> 就是一个函数，它不属于任何“对象”或者“类”。</p>
+<hr>
+<h2 id="🔧-二、方法（Method）又是什么？"><a href="#🔧-二、方法（Method）又是什么？" class="headerlink" title="🔧 二、方法（Method）又是什么？"></a>🔧 二、方法（Method）又是什么？</h2><blockquote>
+<p><strong>方法</strong>就是“类中的函数”，它必须依附于一个“对象”来使用。</p>
+</blockquote>
+<p>比如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Dog</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">bark</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Woof!&quot;</span>)<br><br>d = Dog()      <span class="hljs-comment"># 创建一个对象</span><br>d.bark()       <span class="hljs-comment"># 这是“方法”的调用，依赖于对象 d</span><br></code></pre></td></tr></table></figure>
+
+<p>这里的 <code>bark</code> 就是 Dog 这个类的一个 <strong>方法</strong>。</p>
+<hr>
+<h2 id="🧩-那-rospy-get-param-是函数还是方法？"><a href="#🧩-那-rospy-get-param-是函数还是方法？" class="headerlink" title="🧩 那 rospy.get_param() 是函数还是方法？"></a>🧩 那 <code>rospy.get_param()</code> 是函数还是方法？</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">rospy.get_param(<span class="hljs-string">&quot;~param_name&quot;</span>)<br></code></pre></td></tr></table></figure>
+
+<p>这个是<strong>函数（function）</strong>，虽然它写作 <code>rospy.get_param()</code>，但它并<strong>不是某个对象的方法</strong>，而是一个定义在 <code>rospy</code> 模块里的独立函数。</p>
+<h3 id="✅-解释："><a href="#✅-解释：" class="headerlink" title="✅ 解释："></a>✅ 解释：</h3><ul>
+<li><code>rospy</code> 是一个模块（Python 的库）</li>
+<li><code>get_param</code> 是这个模块下定义的一个函数</li>
+<li>所以它的全称是：<strong>rospy 模块里的函数 get_param</strong></li>
+</ul>
+<p>就像你用：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">math.sqrt(<span class="hljs-number">4</span>)<br></code></pre></td></tr></table></figure>
+
+<p>这也是 math 模块下的 sqrt 函数，本质是一样的。</p>
+<hr>
+<h2 id="🔁-小结：函数-vs-方法"><a href="#🔁-小结：函数-vs-方法" class="headerlink" title="🔁 小结：函数 vs 方法"></a>🔁 小结：函数 vs 方法</h2><table>
+<thead>
+<tr>
+<th>比较项</th>
+<th>函数（function）</th>
+<th>方法（method）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>所在位置</td>
+<td>模块（如 <code>rospy</code>、<code>math</code>）</td>
+<td>类（如 <code>Dog.bark()</code>）</td>
+</tr>
+<tr>
+<td>是否属于对象</td>
+<td>否</td>
+<td>是（必须通过对象或类调用）</td>
+</tr>
+<tr>
+<td>示例</td>
+<td><code>rospy.get_param()</code></td>
+<td><code>list.append()</code>、<code>str.upper()</code></td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="🧪-再举个例子："><a href="#🧪-再举个例子：" class="headerlink" title="🧪 再举个例子："></a>🧪 再举个例子：</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">len</span>(<span class="hljs-string">&quot;hello&quot;</span>)         <span class="hljs-comment"># 函数：内置函数 len</span><br><span class="hljs-string">&quot;hello&quot;</span>.upper()      <span class="hljs-comment"># 方法：字符串对象的 upper 方法</span><br></code></pre></td></tr></table></figure>
+
+<hr>
+<p>如果你之后还想进一步理解<strong>类、对象、模块、库、包之间的区别</strong>，我也可以为你做一个图文对比的解释！需要吗？</p>
+<h1 id="Python-中的“类、对象、模块、库、包”之间的区别"><a href="#Python-中的“类、对象、模块、库、包”之间的区别" class="headerlink" title="Python 中的“类、对象、模块、库、包”之间的区别"></a>Python 中的“类、对象、模块、库、包”之间的区别</h1><p>太好了！理解 Python 中的“类、对象、模块、库、包”之间的区别，会让你写代码时更清晰、心里更有谱。我会用简单、类比清晰的方式来讲解：</p>
+<hr>
+<h2 id="🧱-一张总览表格：快速区分这些概念"><a href="#🧱-一张总览表格：快速区分这些概念" class="headerlink" title="🧱 一张总览表格：快速区分这些概念"></a>🧱 一张总览表格：快速区分这些概念</h2><table>
+<thead>
+<tr>
+<th>概念</th>
+<th>类比</th>
+<th>是什么？</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>函数</strong></td>
+<td>工具</td>
+<td>可单独调用的一段代码</td>
+<td><code>print()</code>, <code>math.sqrt()</code></td>
+</tr>
+<tr>
+<td><strong>方法</strong></td>
+<td>对象的功能按钮</td>
+<td>类里的函数</td>
+<td><code>&quot;abc&quot;.upper()</code>, <code>list.append()</code></td>
+</tr>
+<tr>
+<td><strong>类（Class）</strong></td>
+<td>模板</td>
+<td>创建对象的蓝图</td>
+<td><code>class Dog: ...</code></td>
+</tr>
+<tr>
+<td><strong>对象（Object）</strong></td>
+<td>实物</td>
+<td>类的具体实例</td>
+<td><code>dog1 = Dog()</code></td>
+</tr>
+<tr>
+<td><strong>模块（Module）</strong></td>
+<td>文件</td>
+<td>含有函数、类的 <code>.py</code> 文件</td>
+<td><code>rospy</code>, <code>math</code></td>
+</tr>
+<tr>
+<td><strong>包（Package）</strong></td>
+<td>文件夹</td>
+<td>带有 <code>__init__.py</code> 的模块集合</td>
+<td><code>rospy</code>, <code>numpy</code></td>
+</tr>
+<tr>
+<td><strong>库（Library）</strong></td>
+<td>工具箱</td>
+<td>一组功能相关模块&#x2F;包的集合</td>
+<td><code>OpenCV</code>, <code>NumPy</code>, <code>pypylon</code></td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="🔍-二、一个例子贯穿说明"><a href="#🔍-二、一个例子贯穿说明" class="headerlink" title="🔍 二、一个例子贯穿说明"></a>🔍 二、一个例子贯穿说明</h2><p>我们从一个“狗”的概念来举例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># mymodule.py （这是一个模块）</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Dog</span>:  <span class="hljs-comment"># 这是一个类</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, name</span>):  <span class="hljs-comment"># 这是一个方法</span><br>        <span class="hljs-variable language_">self</span>.name = name<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">bark</span>(<span class="hljs-params">self</span>):  <span class="hljs-comment"># 这是一个方法</span><br>        <span class="hljs-built_in">print</span>(<span class="hljs-variable language_">self</span>.name, <span class="hljs-string">&quot;says woof!&quot;</span>)<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">say_hello</span>():  <span class="hljs-comment"># 这是一个函数</span><br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Hello from mymodule!&quot;</span>)<br></code></pre></td></tr></table></figure>
+
+<p>你可以这样使用它：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> mymodule  <span class="hljs-comment"># 导入模块（也是一个包的一部分）</span><br><br>mymodule.say_hello()     <span class="hljs-comment"># 调用模块里的函数</span><br><br>dog1 = mymodule.Dog(<span class="hljs-string">&quot;Buddy&quot;</span>)  <span class="hljs-comment"># 创建对象（类的实例）</span><br>dog1.bark()             <span class="hljs-comment"># 调用对象的方法</span><br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="🧩-模块、包、库之间的关系图解"><a href="#🧩-模块、包、库之间的关系图解" class="headerlink" title="🧩 模块、包、库之间的关系图解"></a>🧩 模块、包、库之间的关系图解</h2><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs vim">MyLibrary/        &lt;-- 库（Library）<br>│<br>├── image/        &lt;-- 包（Package）<br>│   ├── __init__.<span class="hljs-keyword">py</span><br>│   ├── <span class="hljs-keyword">resize</span>.<span class="hljs-keyword">py</span>     &lt;-- 模块<br>│   └── color.<span class="hljs-keyword">py</span>      &lt;-- 模块<br>│<br>├── utils/<br>│   ├── __init__.<span class="hljs-keyword">py</span><br>│   └── logging.<span class="hljs-keyword">py</span>    &lt;-- 模块<br>│<br>└── __init__.<span class="hljs-keyword">py</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>每个 <code>.py</code> 文件是一个 <strong>模块</strong></li>
+<li>有 <code>__init__.py</code> 的文件夹是一个 <strong>包</strong></li>
+<li>整体集合就是一个 <strong>库</strong></li>
+</ul>
+<hr>
+<h2 id="🧠-总结口诀："><a href="#🧠-总结口诀：" class="headerlink" title="🧠 总结口诀："></a>🧠 总结口诀：</h2><blockquote>
+<p>✅ “类是蓝图，对象是实物，函数是工具，方法是专属功能，模块是.py文件，包是模块集合，库是你要装的那整个工具箱。”</p>
+</blockquote>
+<hr>
+<h2 id="🎁-彩蛋：如何判断一个东西是函数还是方法？"><a href="#🎁-彩蛋：如何判断一个东西是函数还是方法？" class="headerlink" title="🎁 彩蛋：如何判断一个东西是函数还是方法？"></a>🎁 彩蛋：如何判断一个东西是函数还是方法？</h2><p>你可以在 Python 里运行：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">print</span>(<span class="hljs-built_in">type</span>(rospy.get_param))  <span class="hljs-comment"># &lt;class &#x27;function&#x27;&gt;</span><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">type</span>(<span class="hljs-string">&quot;abc&quot;</span>.upper))      <span class="hljs-comment"># &lt;class &#x27;builtin_function_or_method&#x27;&gt;</span><br></code></pre></td></tr></table></figure>
+
+<hr>
+<p>如果你希望我出一张思维导图来帮助你整理这些关系，也完全没问题！或者你有某段代码不知道它用的是哪种概念，也可以贴上来我帮你分析。想来点图示吗？<br><img src="/img/post_illust_img/Python_concept.png" srcset="/img/loading.gif" lazyload alt="Python_Concept"></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E4%BB%A3%E7%A0%81/" class="print-no-link">#代码</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Python的类、对象、函数、方法、模块、库的辨析</div>
+      <div>http://uyhgb.github.io/2025/05/11/Python的类、对象、函数、方法、模块、库的辨析/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>uyhgb</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年5月11日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/05/08/%E5%A6%82%E4%BD%95%E5%BB%BA%E7%AB%8B%E8%BF%99%E6%A0%B7%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2%E7%AB%99/" title="如何建立这样一个博客站">
+                        <span class="hidden-mobile">如何建立这样一个博客站</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="waline"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#waline', function() {
+      Fluid.utils.createCssLink('https://registry.npmmirror.com/@waline/client/2.15.8/files/dist/waline.css')
+      Fluid.utils.createScript('https://registry.npmmirror.com/@waline/client/2.15.8/files/dist/waline.js', function() {
+        var options = Object.assign(
+          {"serverURL":"https://blogcommentserver-j03x026vm-uyhgbs-projects.vercel.app/","path":"window.location.pathname","meta":["nick","mail","link"],"requiredMeta":["nick"],"lang":"zh-CN","emoji":["https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo"],"dark":"html[data-user-color-scheme=\"dark\"]","wordLimit":0,"pageSize":10},
+          {
+            el: '#waline',
+            path: window.location.pathname
+          }
+        )
+        Waline.init(options);
+        Fluid.utils.waitElementVisible('#waline .vcontent', () => {
+          var imgSelector = '#waline .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
