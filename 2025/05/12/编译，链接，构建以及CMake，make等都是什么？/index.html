@@ -19,24 +19,24 @@
   <meta name="author" content="uyhgb">
   <meta name="keywords" content="">
   
-    <meta name="description" content="第十四章 细胞分化细胞分化概念名词解释细胞分化，细胞在形态、结构、功能上发生稳定性差异的过程  细胞分化是基因选择性表达的结果分子杂交southern杂交(DNA)，northern杂交(RNA，主要是mRNA) 管家基因和组织特异性基因(奢侈基因)管家基因在所有细胞都表达，产物是维持细胞生命活动所必须的组织特异性基因(奢侈基因)，在不同类型组织中特异性表达的，产物可赋予细胞特异的形态、结构和功能">
+    <meta name="description" content="讲个笑话，我曾经见到一个信类大二的科班朋友，在用cmake编译py脚本  在尝试怎么用sw直接导出urdf的时候，找到了ROS官方的小插件，clone到本地后一看，只有一个叫install的.iss文件，看ROS wiki也只是随便写了一句 1&quot;Run the installer. It will ask for permission to make changes to your co">
 <meta property="og:type" content="article">
-<meta property="og:title" content="第十四章-细胞分化">
-<meta property="og:url" content="http://uyhgb.github.io/2025/05/11/%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0-%E7%BB%86%E8%83%9E%E5%88%86%E5%8C%96/index.html">
+<meta property="og:title" content="编译，链接，构建以及CMake，make等都是什么？">
+<meta property="og:url" content="http://uyhgb.github.io/2025/05/12/%E7%BC%96%E8%AF%91%EF%BC%8C%E9%93%BE%E6%8E%A5%EF%BC%8C%E6%9E%84%E5%BB%BA%E4%BB%A5%E5%8F%8ACMake%EF%BC%8Cmake%E7%AD%89%E9%83%BD%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F/index.html">
 <meta property="og:site_name" content="uyhgb&#39;s Toy Box">
-<meta property="og:description" content="第十四章 细胞分化细胞分化概念名词解释细胞分化，细胞在形态、结构、功能上发生稳定性差异的过程  细胞分化是基因选择性表达的结果分子杂交southern杂交(DNA)，northern杂交(RNA，主要是mRNA) 管家基因和组织特异性基因(奢侈基因)管家基因在所有细胞都表达，产物是维持细胞生命活动所必须的组织特异性基因(奢侈基因)，在不同类型组织中特异性表达的，产物可赋予细胞特异的形态、结构和功能">
+<meta property="og:description" content="讲个笑话，我曾经见到一个信类大二的科班朋友，在用cmake编译py脚本  在尝试怎么用sw直接导出urdf的时候，找到了ROS官方的小插件，clone到本地后一看，只有一个叫install的.iss文件，看ROS wiki也只是随便写了一句 1&quot;Run the installer. It will ask for permission to make changes to your co">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://uyhgb.github.io/img/post_idx/post2.jpg">
-<meta property="article:published_time" content="2025-05-11T14:32:32.000Z">
-<meta property="article:modified_time" content="2025-05-11T14:35:40.374Z">
+<meta property="og:image" content="http://uyhgb.github.io/img/post_idx/post3.jpg">
+<meta property="article:published_time" content="2025-05-12T11:26:11.000Z">
+<meta property="article:modified_time" content="2025-05-12T13:52:46.440Z">
 <meta property="article:author" content="uyhgb">
-<meta property="article:tag" content="细胞生物学">
+<meta property="article:tag" content="代码">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://uyhgb.github.io/img/post_idx/post2.jpg">
+<meta name="twitter:image" content="http://uyhgb.github.io/img/post_idx/post3.jpg">
   
   
   
-  <title>第十四章-细胞分化 - uyhgb&#39;s Toy Box</title>
+  <title>编译，链接，构建以及CMake，make等都是什么？ - uyhgb&#39;s Toy Box</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -209,13 +209,13 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/post_banner/post2.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('/img/post_banner/post3.jpg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="第十四章-细胞分化"></span>
+            <span id="subtitle" data-typed-text="编译，链接，构建以及CMake，make等都是什么？"></span>
           
         </div>
 
@@ -226,8 +226,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-05-11 22:32" pubdate>
-          2025年5月11日 晚上
+        <time datetime="2025-05-12 19:26" pubdate>
+          2025年5月12日 晚上
         </time>
       </span>
     
@@ -238,7 +238,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.3k 字
+          1.8k 字
         
       </span>
     
@@ -249,7 +249,7 @@
         
         
         
-          11 分钟
+          16 分钟
         
       </span>
     
@@ -299,88 +299,213 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">第十四章-细胞分化</h1>
+            <h1 id="seo-header">编译，链接，构建以及CMake，make等都是什么？</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="第十四章-细胞分化"><a href="#第十四章-细胞分化" class="headerlink" title="第十四章 细胞分化"></a>第十四章 细胞分化</h1><h2 id="细胞分化"><a href="#细胞分化" class="headerlink" title="细胞分化"></a>细胞分化</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p><strong>名词解释</strong><br>细胞分化，细胞在形态、结构、功能上发生稳定性差异的过程</p>
-<ol>
-<li>细胞分化是基因选择性表达的结果<br>分子杂交<br>southern杂交(DNA)，northern杂交(RNA，主要是mRNA)</li>
-<li>管家基因和组织特异性基因(奢侈基因)<br>管家基因在所有细胞都表达，产物是维持细胞生命活动所必须的<br>组织特异性基因(奢侈基因)，在不同类型组织中特异性表达的，产物可赋予细胞特异的形态、结构和功能</li>
-<li>分化的组合调控<br>由少量基因调控蛋白决定分化方向，(比如MyoD，在体外使成纤维细胞向骨骼肌细胞分化，比如ey基因，在体内异位表达，果蝇会在腿上长出眼器官)n种调控蛋白可以产生2^n种分化结果<br><img src="/img/post_illust_img/post2/molecular_hybrid.png" srcset="/img/loading.gif" lazyload alt="分子杂交"></li>
-<li>转分化，去分化，重编程，再生</li>
-</ol>
+                <p>讲个笑话，我曾经见到一个信类大二的科班朋友，在用cmake编译py脚本</p>
 <hr>
-<table>
+<p>在尝试怎么用sw直接导出urdf的时候，找到了ROS官方的小插件，clone到本地后一看，只有一个叫install的<code>.iss</code>文件，看ROS wiki也只是随便写了一句</p>
+<figure class="highlight smalltalk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs smalltalk"><span class="hljs-comment">&quot;Run the installer. It will ask for permission to make changes to your computer. Your Windows account will need to have sufficient privileges to make these changes. It should install into the SolidWorks directory in program files.&quot;</span><br></code></pre></td></tr></table></figure>
+<p>查了下<code>.iss</code>格式应该是要拿Inno Setup来编译的，结果装好之后也不行，问了GPT才知道原来这还得要拿VS来构建，原来里面有个<code>.sln</code>格式的VS文件，到这里发现已经凌晨四点，整理了一下工作流和GPT确认了一下就睡觉了zzz，留着到今天进行一个整理</p>
+<h1 id="上面这个案例的工作流"><a href="#上面这个案例的工作流" class="headerlink" title="上面这个案例的工作流"></a>上面这个案例的工作流</h1><p>由于原项目是在VS里写的，在创建VS项目时就生成了<code>.sln</code>文件，也就是<code>Solution File</code>，他是整个VS项目的代码入口，保存了编译配置，工程依赖关系，打开<code>.sln</code>文件，选择构建配置(比如Debug&#x2F;Release，在构建系统很常见的两个名字)，构建完成后使用Inno Setup编译<code>.iss</code>脚本生成安装程序的<code>.exe</code>，最后直接启动<code>.exe</code>就完成了安装</p>
+<h1 id="编译，链接，构建都是什么"><a href="#编译，链接，构建都是什么" class="headerlink" title="编译，链接，构建都是什么"></a>编译，链接，构建都是什么</h1><table>
 <thead>
 <tr>
-<th>名词</th>
-<th>转分化</th>
-<th>去分化</th>
-<th>重编程</th>
+<th>概念</th>
+<th>含义</th>
+<th>举例</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>概念</td>
-<td>由一种分化转变为另一种</td>
-<td>又叫脱分化，分化后的细胞失去其特有的结构和功能，转变为未分化的状态</td>
-<td>高等动物克隆时细胞核转入卵细胞进行去分化的过程，涉及DNA,组蛋白修饰的变化</td>
+<td><strong>编译 compile</strong></td>
+<td>把单个源文件（如 <code>.cpp</code>）转换为目标文件（<code>.obj</code> 或 <code>.o</code>）</td>
+<td><code>g++ -c foo.cpp -o foo.o</code></td>
+</tr>
+<tr>
+<td><strong>链接 link</strong></td>
+<td>把多个 <code>.o</code> 合并为可执行文件或 <code>.dll</code></td>
+<td><code>g++ foo.o bar.o -o app.exe</code></td>
+</tr>
+<tr>
+<td><strong>构建 build</strong></td>
+<td>包括“编译 + 链接 + 拷贝资源 + 生成中间产物”等整个过程</td>
+<td><code>make</code>, <code>cmake --build</code>, <code>msbuild</code></td>
 </tr>
 </tbody></table>
-<hr>
-<p>再生，再生能力比较，低等动物&gt;高等动物，植物&gt;动物</p>
-<h3 id="影响细胞分化的因素"><a href="#影响细胞分化的因素" class="headerlink" title="影响细胞分化的因素"></a>影响细胞分化的因素</h3><p><strong>直接因素</strong><br>直接因素是调控蛋白的组合，主要受胞外信号系统影响，而胞外信号受细胞信号转导调控网络控制</p>
+<p><strong>构建是是一个“项目级别”的行为，而编译是“文件级别”的行为</strong></p>
+<h1 id="各类构建、编译工具"><a href="#各类构建、编译工具" class="headerlink" title="各类构建、编译工具"></a>各类构建、编译工具</h1><p>下面我会逐步介绍不同形式的工作流</p>
+<h2 id="DEV-C-，CODE-BLOCKS-VS等IDE"><a href="#DEV-C-，CODE-BLOCKS-VS等IDE" class="headerlink" title="DEV-C++，CODE BLOCKS,VS等IDE"></a>DEV-C++，CODE BLOCKS,VS等IDE</h2><p>如果你写好代码，直接在这些IDE里面点击run，实际上背后的过程包括了四步</p>
 <ol>
-<li>受精卵细胞质的不均一性<br>果蝇卵受精后，只进行核分裂，核移动到对应位置就分化为对应细胞，如进入生殖质的区域就会分化为生殖细胞，生殖质就是其分化为生殖细胞的<strong>决定子</strong><br>果蝇胚胎的发育命运在卵子成熟时就已经决定，受精后激活或抑制区域化的合子基因表达，决定了发育方向</li>
-<li>细胞的位置信息和信号分子<br>近端诱导(近端组织相互作用，胚胎诱导)，一些细胞可以影响周围的细胞分化方向<br>通过<strong>信号细胞分泌信号分子</strong>来完成(信号分子也可以作用到靶细胞)</li>
-</ol>
-<ul>
-<li>短程诱导作用：相距5-10个细胞</li>
-<li>长程诱导细胞：超过5-10细胞<br>例子：眼原基的逐级诱导</li>
-</ul>
-<ol start="3">
-<li>细胞记忆与<strong>决定</strong><br>细胞将信号分子短暂的作用存储起来形成长期记忆，细胞和其<strong>子代细胞</strong>向特定方向分化<br>成虫盘移植实验</li>
-</ol>
-<ul>
-<li><strong>决定</strong>：细胞接受指令后，将在形态、结构、功能等分化特征发育前就决定分化命运<br><strong>决定早于分化</strong></li>
-<li>细胞的决定与细胞的记忆有关，记忆实现的两种途径</li>
-<li><ol>
-<li>正反馈途径，接受信号分子后，激活转录调节因子，不仅诱导自身基因(转录因子基因，形成了正反馈)表达，还能诱导其他组织特异性基因</li>
-</ol>
+<li><p>预处理（Preprocessing）<br>它会处理 #include、#define 等预处理指令。<br>输出是一个展开后的源文件（临时中间文件）。</p>
 </li>
-<li><ol start="2">
-<li>染色体结构发生变化(DNA与蛋白质相互作用及修饰)并传递给子代细胞</li>
-</ol>
+<li><p>编译（Compiling）<br>使用 GCC（g++） 将每个 .cpp 文件编译成 .o（object）文件，也叫目标文件。<br>每个 .o 文件对应一个编译单元。</p>
 </li>
-</ul>
-<ol start="4">
-<li>(特殊方式)染色质变化与基因重排<br>染色体丢失———马蛔虫特例<br>基因重排: B细胞分化时，体细胞重组</li>
+<li><p>链接（Linking）<br>把所有生成的 .o 文件以及你项目中依赖的链接库（如标准库、用户添加的第三方库）合并成一个可执行文件 .exe。<br>链接器负责解析函数&#x2F;变量引用，完成最终的程序结构。</p>
+</li>
+<li><p>运行（Running）<br>执行最终生成的 .exe 文件。</p>
+</li>
 </ol>
-<h2 id="干细胞"><a href="#干细胞" class="headerlink" title="干细胞"></a>干细胞</h2><h3 id="根据分化潜能分类"><a href="#根据分化潜能分类" class="headerlink" title="根据分化潜能分类"></a>根据分化潜能分类</h3><p>全能干细胞：受精卵，卵裂早期细胞（不超过16个细胞），可以分化为完整生命体<br>多潜能干细胞：囊胚三胚层中的细胞，有<strong>胚胎干细胞，生殖嵴干细胞</strong><br>多能干细胞：仅能分化为几种类型的细胞<br>单能干细胞：仅能向<strong>一种或几种</strong>密切相关的终末细胞类型分化</p>
-<h3 id="根据来源分类"><a href="#根据来源分类" class="headerlink" title="根据来源分类"></a>根据来源分类</h3><p>胚胎干细胞：来自囊胚内细胞团<br>成体干细胞：造血干细胞，神经干细胞，肠干细胞</p>
-<h3 id="增殖方式"><a href="#增殖方式" class="headerlink" title="增殖方式"></a>增殖方式</h3><p>对称性分裂：数目扩增<br>不对称性分裂：除了自我更新，还产生了分化后的细胞</p>
-<p>祖细胞&#x2F;前体细胞：干细胞早期分化后，细胞不再能无限分裂，只能进行有限次分裂</p>
-<h3 id="细胞分化逆转"><a href="#细胞分化逆转" class="headerlink" title="细胞分化逆转"></a>细胞分化逆转</h3><p>爪蟾核移植实验：体细胞核移植<br>多利羊：重编程</p>
-<h3 id="胚胎干细胞"><a href="#胚胎干细胞" class="headerlink" title="胚胎干细胞"></a>胚胎干细胞</h3><p>来源：内细胞团<br>还有胚胎生殖嵴干细胞</p>
-<h3 id="成体干细胞"><a href="#成体干细胞" class="headerlink" title="成体干细胞"></a>成体干细胞</h3><p>功能：产生终末分化细胞<br>分布：广泛存在于各种组织，大脑内也有(神经干细胞)<br>干细胞巢：针对成体干细胞，维持其特性，提供特定胞外信号的微环境</p>
-<h3 id="逆转终末分化细胞"><a href="#逆转终末分化细胞" class="headerlink" title="逆转终末分化细胞"></a>逆转终末分化细胞</h3><p>历程:移植到卵细胞&gt;&gt;移植到胚胎干细胞&gt;&gt;iPS(转入四个基因)</p>
-<h1 id="应试"><a href="#应试" class="headerlink" title="应试"></a>应试</h1><h2 id="课上思考题"><a href="#课上思考题" class="headerlink" title="课上思考题"></a>课上思考题</h2><p>Q:造血干细胞、神经干细胞、肠干细胞从分化潜能来讲，分别属于哪一类型的干细胞？<br>A:</p>
+<h3 id="一些补充"><a href="#一些补充" class="headerlink" title="一些补充"></a>一些补充</h3><ul>
+<li>gcc用于编译C，也可以编译C++，但你要手动加上 -lstdc++ 才能链接标准 C++ 库</li>
+<li>g++专用于编译C++，自动链接C++库</li>
+<li>在windows下gcc&#x2F;g++叫做mingw，所以如果你想在vscode上run C&#x2F;C++，可以指定DEV-C++或者CODE BLOCKS的Mingw (乐)</li>
+<li><code>.o/.obj</code>文件是机器语言，<code>.s</code>才是汇编语言</li>
+</ul>
+<h2 id="VS的-sln-vsxporj，以及Inno-Setup"><a href="#VS的-sln-vsxporj，以及Inno-Setup" class="headerlink" title="VS的.sln .vsxporj，以及Inno Setup"></a>VS的<code>.sln</code> <code>.vsxporj</code>，以及Inno Setup</h2><h3 id="VS工程"><a href="#VS工程" class="headerlink" title="VS工程"></a>VS工程</h3><p><code>.sln</code>是创建项目时生成的Solution File，是VS工程的主入口，是组织多个项目的容器，使用特殊格式<br><code>.vsxproj</code>存储了构建的配置，使用xml格式，包括了要构建的源代码，头文件都是什么，要使用的编译器，生成路径，输出类型(EXE,DLL),选择默认构建配置(Debug&#x2F;Release)等等，在VS里似乎(?)有GUI可以直接配置(我用的少)</p>
+<p>之后直接在VS里run就可以完成项目级构建了</p>
+<h3 id="Inno-Set"><a href="#Inno-Set" class="headerlink" title="Inno Set"></a>Inno Set</h3><p><strong>为什么需要Inno Set?</strong><br>既然VS已经可以编译出EXE和DLL了，为什么还需要Inno Setup来编译，实际上对于需要安装的软件和插件，你编译出的可执行程序只是程序本身，无法完成安装所需的功能，比如:</p>
 <table>
 <thead>
 <tr>
-<th>造血干细胞</th>
-<th>神经干细胞</th>
-<th>肠干细胞</th>
+<th>安装行为</th>
+<th>你写的 <code>.exe</code> 做不到</th>
+<th>Inno Setup 等安装工具能做</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>多能干细胞</td>
-<td>单能干细胞</td>
-<td>单能干细胞</td>
+<td>创建快捷方式</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>复制 DLL 到系统目录</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>写入注册表（如插件注册）</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>自动卸载入口</td>
+<td>❌</td>
+<td>✅</td>
 </tr>
 </tbody></table>
-<h2 id="作业"><a href="#作业" class="headerlink" title="作业"></a>作业</h2><p><img src="/img/post_illust_img/post2/hw1.png" srcset="/img/loading.gif" lazyload alt="1"><br><img src="/img/post_illust_img/post2/hw2.png" srcset="/img/loading.gif" lazyload alt="2"></p>
+<hr>
+<p>使用Inno Setup来完成安装程序的封装，最后就是随处可见的Setup.exe了<br>对于sw2urdf这个插件来说，要由Inno Setup完成封装，并把其写入注册表，solidworks才能在注册表找到sw2urdf这个插件</p>
+<h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><ul>
+<li>DLL是动态链接库，由编译器编译得到，类似于项目里的utils或者ROS的功能包，可以被其他EXE&#x2F;DLL调用，在linux系统下是<code>.so</code>后缀</li>
+<li>有动态链接就有静态链接，在win系统下是<code>.lib</code>后缀，在linux系统下是<code>.a</code>后缀</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>方式</th>
+<th>示例</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>静态链接</td>
+<td><code>.lib</code> &#x2F; <code>.a</code></td>
+<td>编译时将库嵌入可执行文件，体积大，更新麻烦</td>
+</tr>
+<tr>
+<td>动态链接</td>
+<td><code>.dll</code> &#x2F; <code>.so</code></td>
+<td>运行时加载，灵活节省空间，需分发 DLL</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>平台</th>
+<th>静态库</th>
+<th>动态库</th>
+<th>用途说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Windows</td>
+<td><code>.lib</code></td>
+<td><code>.dll</code>（+ <code>.lib</code>）</td>
+<td><code>.lib</code> 静态 or 动态的导入库；<code>.dll</code> 是运行时用</td>
+</tr>
+<tr>
+<td>Linux</td>
+<td><code>.a</code></td>
+<td><code>.so</code></td>
+<td><code>.a</code> 编译时链接；<code>.so</code> 编译 + 运行时用</td>
+</tr>
+<tr>
+<td>macOS</td>
+<td><code>.a</code></td>
+<td><code>.dylib</code></td>
+<td>同上</td>
+</tr>
+</tbody></table>
+<h2 id="ROS的catkin-build"><a href="#ROS的catkin-build" class="headerlink" title="ROS的catkin build"></a>ROS的catkin build</h2><p>ROS1有两种构建方式，<code>catkin make</code>和<code>catkin build</code>，通常来说使用<code>catkin build</code>就可以，他更适用于大型项目的构建，并且可以多个功能包并行构建，<code>catkin make</code>是最早的官方工具，但后续社区自己长出来了<code>catkin build</code>，功能更加强大，所以咱也不知道为什么<code>catkin make</code>还没被弃用(虽然ROS2里只有colcon build了)<br><code>catkin build</code>包含了编译、链接、构建的全过程<br>ROS 的 <code>catkin build</code> 实际调用的是：</p>
+<ul>
+<li>CMake（处理构建配置）</li>
+<li>Make &#x2F; Ninja（实际执行编译和链接）</li>
+<li>rosbuild &#x2F; ament &#x2F; colcon（管理依赖、生成 install 目录）</li>
+</ul>
+<p>但你不需要看到它们，因为 catkin build 把这些流程封装统一了，你只看到一行命令：<br><code>catkin build</code><br>它背后等价于：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">mkdir</span> -p build &amp;&amp; <span class="hljs-built_in">cd</span> build<br>cmake ..<br>make<br></code></pre></td></tr></table></figure>
+<h2 id="make，cmake以及他们对应的文件"><a href="#make，cmake以及他们对应的文件" class="headerlink" title="make，cmake以及他们对应的文件"></a>make，cmake以及他们对应的文件</h2><p>前面提到，<code>catkin</code>在构建时调用了cmake, make&#x2F;ninja，现在来介绍这些工具</p>
+<h3 id="总体工作流"><a href="#总体工作流" class="headerlink" title="总体工作流"></a>总体工作流</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash">你写的代码（.cpp/.h） + 配置文件（CMakeLists.txt）<br>           ↓<br>     cmake（生成构建脚本）<br>           ↓<br>   Makefile / build.ninja（构建脚本）<br>           ↓<br>   make / ninja（实际执行构建）<br>           ↓<br>   编译器（gcc/clang）执行 → .o → .exe/.so<br></code></pre></td></tr></table></figure>
+
+<h3 id="工具-文件类型对照表"><a href="#工具-文件类型对照表" class="headerlink" title="工具 &amp; 文件类型对照表"></a>工具 &amp; 文件类型对照表</h3><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>你是否编写</th>
+<th>主要功能</th>
+<th>产出&#x2F;输入文件</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>CMakeLists.txt</code></td>
+<td>配置脚本</td>
+<td>✅ 你写</td>
+<td>定义项目结构和构建规则（目标、依赖、选项）</td>
+<td>输入给 <code>cmake</code></td>
+</tr>
+<tr>
+<td><code>cmake</code></td>
+<td>工具（构建脚本生成器）</td>
+<td>❌ 系统提供</td>
+<td>解析 <code>CMakeLists.txt</code> 并生成 <code>Makefile</code> 或 <code>build.ninja</code></td>
+<td>输出构建脚本</td>
+</tr>
+<tr>
+<td><code>Makefile</code></td>
+<td>构建脚本</td>
+<td>❌（或半自动）</td>
+<td><code>make</code> 读取它来知道如何编译项目</td>
+<td>输入给 <code>make</code></td>
+</tr>
+<tr>
+<td><code>make</code></td>
+<td>构建执行器</td>
+<td>❌ 系统提供</td>
+<td>根据 Makefile 调用编译器构建项目</td>
+<td>输出 <code>.o</code>, <code>.exe</code>, <code>.so</code> 等</td>
+</tr>
+<tr>
+<td><code>ninja</code></td>
+<td>现代构建执行器（比 make 快）</td>
+<td>❌ 系统提供</td>
+<td>根据 <code>build.ninja</code> 执行构建步骤</td>
+<td>输出 <code>.o</code>, <code>.exe</code>, <code>.so</code> 等</td>
+</tr>
+<tr>
+<td><code>build.ninja</code></td>
+<td>构建脚本（ninja 用）</td>
+<td>❌（由 <code>cmake -G Ninja</code> 生成）</td>
+<td>替代 Makefile，更适合并行</td>
+<td>输入给 <code>ninja</code></td>
+</tr>
+</tbody></table>
+<h3 id="工具间的关系"><a href="#工具间的关系" class="headerlink" title="工具间的关系"></a>工具间的关系</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs stylus">你写的：CMakeLists<span class="hljs-selector-class">.txt</span><br>           ↓（执行 cmake）<br>生成：<br>→ Makefile       → 用于 make<br>→ build<span class="hljs-selector-class">.ninja</span>    → 用于 ninja<br><br>然后运行：<br>→ make           → 编译为 <span class="hljs-selector-class">.o</span> → <span class="hljs-selector-class">.exe</span><br>→ ninja          → 同上，但更快<br><br></code></pre></td></tr></table></figure>
+
+<hr>
+<p>回到那个开头的笑话，为什么用cmake去编译py脚本非常搞笑，因为Python是解释性语言而非编译型语言，使用的是解释器而非编译器，直接run就行，不需要像C&#x2F;C++一样先编译再执行，这同时也反映了Python脚本的一大优点——修改后立即生效<br>(我靠，写了一个多小时，作业也没做)</p>
 
                 
               </div>
@@ -393,7 +518,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E7%BB%86%E8%83%9E%E7%94%9F%E7%89%A9%E5%AD%A6/" class="print-no-link">#细胞生物学</a>
+        <a href="/tags/%E4%BB%A3%E7%A0%81/" class="print-no-link">#代码</a>
       
     </div>
   
@@ -405,8 +530,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>第十四章-细胞分化</div>
-      <div>http://uyhgb.github.io/2025/05/11/第十四章-细胞分化/</div>
+      <div>编译，链接，构建以及CMake，make等都是什么？</div>
+      <div>http://uyhgb.github.io/2025/05/12/编译，链接，构建以及CMake，make等都是什么？/</div>
     </div>
     <div class="license-meta">
       
@@ -418,7 +543,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年5月11日</div>
+          <div>2025年5月12日</div>
         </div>
       
       
@@ -450,18 +575,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/05/12/%E7%BC%96%E8%AF%91%EF%BC%8C%E9%93%BE%E6%8E%A5%EF%BC%8C%E6%9E%84%E5%BB%BA%E4%BB%A5%E5%8F%8ACMake%EF%BC%8Cmake%E7%AD%89%E9%83%BD%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F/" title="编译，链接，构建以及CMake，make等都是什么？">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">编译，链接，构建以及CMake，make等都是什么？</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/05/11/Python%E7%9A%84%E7%B1%BB%E3%80%81%E5%AF%B9%E8%B1%A1%E3%80%81%E5%87%BD%E6%95%B0%E3%80%81%E6%96%B9%E6%B3%95%E3%80%81%E6%A8%A1%E5%9D%97%E3%80%81%E5%BA%93%E7%9A%84%E8%BE%A8%E6%9E%90/" title="Python的类、对象、函数、方法、模块、库的辨析">
-                        <span class="hidden-mobile">Python的类、对象、函数、方法、模块、库的辨析</span>
+                      <a href="/2025/05/11/%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0-%E7%BB%86%E8%83%9E%E5%88%86%E5%8C%96/" title="第十四章-细胞分化">
+                        <span class="hidden-mobile">第十四章-细胞分化</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
