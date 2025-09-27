@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>Hexo cheatsheet</title>
+    <link href="/2025/09/27/Hexo-cheatsheet/"/>
+    <url>/2025/09/27/Hexo-cheatsheet/</url>
+    
+    <content type="html"><![CDATA[<p>煮波三个月没有写过博客了，hexo的用法也忘得差不多了，写个cheatsheet方便以后查阅</p><h1 id="Hexo-cheatsheet"><a href="#Hexo-cheatsheet" class="headerlink" title="Hexo cheatsheet"></a>Hexo cheatsheet</h1><h2 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h2><p><strong>关于配置还有初始化什么的就不写了，建好站之后都不用动，想再建可以查阅最开始的文档里的链接</strong><br>下面都是一些新建文章和部署的命令</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 新建文章</span><br>hexo new <span class="hljs-string">&quot;文章标题&quot;</span>     <span class="hljs-comment"># 文章会生成在source/_posts目录下，标题有空格必须加引号，后缀名.md会自动添加</span><br><span class="hljs-comment"># 生成静态文件</span><br>hexo generate<br><span class="hljs-comment"># 或者</span><br>hexo g<br><span class="hljs-comment"># 本地预览</span><br>hexo server -p 5000   <span class="hljs-comment"># 端口号可以自己指定，默认4000，建议改成5000，4000不知道什么问题打不开</span><br><span class="hljs-comment"># 之后在浏览器打开 http://localhost:5000 进行预览</span><br><br><span class="hljs-comment"># 部署到github pages</span><br>hexo deploy<br><span class="hljs-comment"># 或者</span><br>hexo d<br><br><span class="hljs-comment"># 清除生成的静态文件，主要用来把前一次的生成结果清除掉，之后再重新生成，使用generate命令</span><br>hexo clean<br></code></pre></td></tr></table></figure><h2 id="图片路径"><a href="#图片路径" class="headerlink" title="图片路径"></a>图片路径</h2><p>图片放在<code>source/img</code>目录<br>bg是background，是我的不吉波普<br>broswer_icon是浏览器标签页的小图标<br>这两个都不用改</p><blockquote><p>需要改的<br>post_banner是文章页的banner图<br>post_idx是文章列表页的缩略图<br>post_illust_img是文章内插图，注意目录结构，每篇文章单独放一个文件夹</p></blockquote>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>杂谈</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>信号7</title>
     <link href="/2025/06/17/%E4%BF%A1%E5%8F%B77/"/>
     <url>/2025/06/17/%E4%BF%A1%E5%8F%B77/</url>
