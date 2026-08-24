@@ -28,7 +28,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://uyhgb.github.io/img/post_idx/post7.png">
 <meta property="article:published_time" content="2026-08-11T01:49:52.000Z">
-<meta property="article:modified_time" content="2026-08-24T01:30:01.033Z">
+<meta property="article:modified_time" content="2026-08-24T05:49:32.034Z">
 <meta property="article:author" content="uyhgb">
 <meta property="article:tag" content="机器人">
 <meta name="twitter:card" content="summary_large_image">
@@ -238,7 +238,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          8k 字
+          8.1k 字
         
       </span>
     
@@ -249,7 +249,7 @@
         
         
         
-          67 分钟
+          68 分钟
         
       </span>
     
@@ -320,44 +320,43 @@
 <li>运动控制设计</li>
 </ol>
 <p>架构图（直接copy来的）</p>
-<pre><code class=" mermaid">flowchart TD
-    A(需求分析与性能目标制定) --&gt; B(机械结构设计)
+<pre><code class=" mermaid">graph TD
+    A[&quot;需求分析与性能目标制定&quot;] --&gt; B[&quot;机械结构设计&quot;]
 
-    A --&gt; H(传感器设计)
-    H --&gt; I1[惯性测量单元IMU]
-    H --&gt; I2[相机]
+    A --&gt; H[&quot;传感器设计&quot;]
+    H --&gt; I1[&quot;惯性测量单元 IMU&quot;]
+    H --&gt; I2[&quot;相机&quot;]
 
-    B --&gt; B1[构型：自由度配置与分布]
-    B1 --&gt; B2[关节活动范围优化]
-    B2 --&gt; B4[确定动力学参数]
-    B4 --&gt; B5[驱动器选型]
+    B --&gt; B1[&quot;构型：自由度配置与分布&quot;]
+    B1 --&gt; B2[&quot;关节活动范围优化&quot;]
+    B2 --&gt; B4[&quot;确定动力学参数&quot;]
+    B4 --&gt; B5[&quot;驱动器选型&quot;]
 
+    B5 --&gt; C[&quot;电路与驱动设计&quot;]
+    B5 --&gt; B3[&quot;结构设计与轻量化&quot;]
 
-    B5 --&gt; C(电路与驱动设计)
-    B5 --&gt; B3[结构设计与轻量化]
+    C --&gt; C1[&quot;电源管理&quot;]
+    C1 --&gt; C2[&quot;驱动器驱动电路开发&quot;]
+    C2 --&gt; C3[&quot;主控与执行单元集成 PCB&quot;]
 
-    C --&gt; C1[电源管理]
-    C1 --&gt; C2[驱动器驱动电路开发]
-    C2 --&gt; C3[主控与执行单元集成PCB]
-
-    B5 --&gt; D(通信系统设计)
-    D --&gt; D1[驱动器通讯]
-    D1 --&gt; D3[状态反馈与指令下发]
-    D --&gt; D4[融合传感器]
+    B5 --&gt; D[&quot;通信系统设计&quot;]
+    D --&gt; D1[&quot;驱动器通讯&quot;]
+    D1 --&gt; D3[&quot;状态反馈与指令下发&quot;]
+    D --&gt; D4[&quot;融合传感器&quot;]
     D4 --&gt; D3
     I1 --&gt; D4
     I2 --&gt; D4
 
-    D3 --&gt; E(运动控制设计)
+    D3 --&gt; E[&quot;运动控制设计&quot;]
     A --&gt; E
 
-    E --&gt; E1[动力学建模]
+    E --&gt; E1[&quot;动力学建模&quot;]
     B3 --&gt; E1
-    E1 --&gt; E2[算法设计]
-    E2 --&gt; E3[Sim2Sim与Sim2Real部署]
+    E1 --&gt; E2[&quot;算法设计&quot;]
+    E2 --&gt; E3[&quot;Sim2Sim 与 Sim2Real 部署&quot;]
     C3 --&gt; E3
 
-    E3 --&gt; F[稳定行走与动态踢球验证]
+    E3 --&gt; F[&quot;稳定行走与动态踢球验证&quot;]
 </code></pre>
 
 <h2 id="如何从四个设计部分来理解架构"><a href="#如何从四个设计部分来理解架构" class="headerlink" title="如何从四个设计部分来理解架构"></a>如何从四个设计部分来理解架构</h2><p>先拆解四个设计：</p>
